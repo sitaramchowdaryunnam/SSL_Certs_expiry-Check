@@ -10,7 +10,7 @@ def ssl_expiry_date(domainname):
         socket.socket(socket.AF_INET),
         server_hostname=domainname,
     )
-    # 3 second timeout because Lambda has runtime limitations
+    # 3 second timeout because Lambda has runtime limitations 
     conn.settimeout(3.0)
     conn.connect((domainname, 443))
     ssl_info = conn.getpeercert()
@@ -33,7 +33,7 @@ def sns_Alert(dName, eDays, sslStatus):
     )
     
     
-#####Main Section
+####Main Section
 client = boto3.client('sns')
 def lambda_handler(event, context):
     f = ['www.google.com']
